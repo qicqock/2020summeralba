@@ -1,0 +1,62 @@
+// 파일 읽기
+        if (hwpFile.getBodyText().getSectionList().size() > 0) {
+            System.out.println(filepath + "  읽기 성공 !!");
+            String text = hwpFile.getBodyText().getSectionList().get(0).getParagraph(0).getText().getNormalString(0);
+            System.out.println(text);
+        }
+//문단 추가
+: 새로운 문단 추가는 단순히 addNew	Paragraph로 해결되지않는다. Inserting_Table.java의 setParagraphForCell참고함.
+
+// 줄간격 조정
+ - lineSeg에서 줄간격을 조정할 수 있는데 왜인지 줄간격(LineSpace)로는 조정이 되지 않았다.
+ - 삽질중 paragraph의 header의 ParaShapeId를 이전것의 id를 가져와서 set했더니 이전과 같은 줄간격을 가졌다.
+
+	private static void setParaHeader(Paragraph firstParagraph, int ParaShapeId) {
+			ParaHeader ph = firstParagraph.getHeader();
+			ph.setLastInList(true);
+		
+			// ph.setParaShapeId(10); <- 처음에 문단 만들기를 개발할때는 이런 값을 지정해줬었고 파라미터 값을 변화시켰을때
+			// 0이면 전체 들여쓰기, 1이면 1. 2이면 가. 9이면 첫줄뺴고 들여쓰기.10이면 전체 들여쓰기 없음. 였기 때문에 문단 모양 수준이라고 생각했는데
+			// 좀더 조사가 필요할 것 같다.  
+			// 결론 적으로 10 -> 이전문단의ShapeId를 가져오는 것으로 바꿨더니 줄간격이 늘어났다.
+			ph.setParaShapeId(ParaShapeId);
+		
+			ph.setStyleId((short) 0);
+			ph.getDivideSort().setDivideSection(false);
+        	ph.getDivideSort().setDivideMultiColumn(false);
+        	ph.getDivideSort().setDividePage(false);
+        	ph.getDivideSort().setDivideColumn(false);
+        	ph.setCharShapeCount(1);
+        	ph.setRangeTagCount(0);
+        	ph.setLineAlignCount(1);
+        	ph.setInstanceID(0);
+        	ph.setIsMergedByTrack(0);		
+	}
+	//paraheader는 bodytext-(section)-paragraph-header-paraheader에서 볼 수 있다.
+
+//원래 줄 간격을 조정하는 곳
+	Section ss = hwpFile.getBodyText().getSectionList().get(0);
+	Paragraph fp = ss.getParagraph(1);
+	ParaLineSeg pls = fp.getLineSeg();
+	LineSegItem lsi = pls.getLineSegItemList().get(0);
+	int lsize = lsi.getLineSpace();
+: bodytext-(section)-paragraph-paraLineSeg에서 줄에 관한 Shape를 볼 수 있다.
+
+//특수문자 ○ 는 볼드체 적용안됨.
+
+// 단 나누기
+	// paragraph.java의 getControllist에 참고
+	// bodytext-control-controlColumnDefine.java 참고. getControllist에서 가져올때 자료형이 control인데, controlColumnDefine.java가 Control을 상속해오므로 형변환해서 가져오면된다.
+	// bodytext-control-ctrlheader-columndefine-ColumnDefineHeaderProperty.java 참조.
+	// bodytext-control-ctrlheader-CtrlHeaderColumnDefine.java 참조.
+	
+	// paragraph에서 getControllist()를 통해 컨트롤을 조정하는 리스트를 가져올수 있다.
+	// empty.hwp는 getControllist()를 통해 조회할경우, 2개가나왔다. 첫번쨰가 section정보, 두번째가 columndefine정보가 담겨있었다.
+	ControlColumnDefine col = (ControlColumnDefine) firstParagraph.getControlList().get(1); 
+	// 단에 관한 정보를 담는 변수인 col에서 설정되어있는 단에 관한 특성을 보여주는 getProperty()로, getColumnCount()를 하면 1을 리턴한다.
+	// 현재 empty.hwp는 단이 1개 이므로 1을 리턴한다. 따라서 setColumnCount를 통해 2개의 단으로 설정한다.      
+    col.getHeader().getProperty().setColumnCount((short) 2);
+    // 단사이의 간격을 setGapBetweenColumn()로 설정한다.
+    col.getHeader().setGapBetweenColumn(2000);
+    // 이떄, ControlColumnDefine col1 = (ControlColumnDefine) p1.addNewControl(ControlType.ColumnDefine); 처럼
+    // addNewControl을 해서는 안된다. 이미 1개의 단으로 설정되어있으므로 단컨트롤을 추가해서는 안된다.
