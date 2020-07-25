@@ -35,14 +35,21 @@ def trans():
     f.close()
     # 텍스트파일에 있는 내용을 받아옴
 
-    document = Document()
-    list = test.split('\n')
+    document = Document
+    list = []
+    for i in test:
+        if (i == "\n"):
+            list.append()
+    # list = test.split('\n')
+    check = 0
     for i in list:
-        if (i[0] == '○'):
+        if (len(i) == 0):
+            continue
+        elif (check == 1):
             para = document.add_paragraph()
-            run = para.add_run(i)
+            run = para.add_run("○" + i)
             run.bold = True
-
+            check = 0
         else:
             document.add_paragraph(i)
     # "○김성원 위원"같은 태그가 붙을시 글씨체 bold 로 바꿔주고 붙혀넣어줌
@@ -66,7 +73,7 @@ def trans():
     document.save(docxfilename)
     # 저장,원래 파일이름 그대로로 확장자만 바꿔서 저장
 
-    convert(docxfilename)
+    # convert(docxfilename)
     #pdf로 변환
 
 
