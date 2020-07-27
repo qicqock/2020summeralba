@@ -1,0 +1,9 @@
+txt_to_word.py 설정
+1.pip install python-docx
+2.pip install docx2pdf
+
+
+txt_to_hwp.py 설정
+pip install olefile 
+pip install --user --pre pyhwp
+https://pypi.org/project/pyhwp/
