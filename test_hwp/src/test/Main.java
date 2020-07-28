@@ -31,7 +31,8 @@ import kr.dogfoot.hwplib.writer.HWPWriter;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		String filepath = "/Users/carly/eclipse-workspace/test/empty.hwp";
+		String filepath = "C:\\Users\\qicqo\\Desktop\\2020summer\\test_hwp\\empty.hwp";
+		// 처음 불러서 사용할 한글파일에 경로 설정, 경우에 따라 변경해 주어야한다.
 		HWPFile hwpFile = HWPReader.fromFile(filepath);
         		
 		// 파일 쓰기
@@ -45,7 +46,8 @@ public class Main {
     		col.getHeader().setGapBetweenColumn(2000);
     		
             //파일 객체 생성
-            File file = new File("/Users/carly/eclipse-workspace/test/text.txt");
+            File file = new File("C:\\Users\\qicqo\\Desktop\\2020summer\\test_hwp\\text.txt");
+            // 읽어올 텍스트파일의 경로 설정, 경우에 따라 변경해 주어야한다.
             //입력 스트림 생성
             FileReader filereader = new FileReader(file);
             //입력 버퍼 생성
@@ -92,7 +94,8 @@ public class Main {
             }
             //.readLine()은 끝에 개행문자를 읽지 않는다.            
             bufReader.close();
-            String writePath = "/Users/carly/eclipse-workspace/test/result.hwp";
+            String writePath = "C:\\Users\\qicqo\\Desktop\\2020summer\\test_hwp\\result.hwp";
+            // 결과가 입력이 될 한글파일 경로 설정, 경우에 따라 변경해 주어야한다.
             HWPWriter.toFile(hwpFile, writePath);
 
         }

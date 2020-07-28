@@ -4,6 +4,8 @@ txt_to_word.py 설정
 
 
 txt_to_hwp.py 설정
+1.java jdk가 설치되있어야함(파이썬에서 자바를 실행시키는 것이기 때문)
+
 pip install olefile 
 pip install --user --pre pyhwp
 https://pypi.org/project/pyhwp/

@@ -91,7 +91,7 @@ def trans():
     document.save(docxfilename)
     # 저장,원래 파일이름 그대로로 확장자만 바꿔서 저장
 
-    convert(docxfilename)
+    # convert(docxfilename)
     # pdf로 변환
 
 
