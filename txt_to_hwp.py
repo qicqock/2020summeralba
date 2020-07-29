@@ -8,10 +8,8 @@ address = "C:/Users/qicqo/Desktop/2020summer/test_hwp/target/classes;C:/Users/qi
 # 컴파일이나 실행할때 이주소를 classpath 옵션으로 지정해주어야 정상적으로 작동한다.
 # 실행환경이 바뀌었을때 이 주소도 바꿔줘야함
 
-
 def compile_java(java_file):
     subprocess.check_call(['javac', "-classpath", address, "-encoding", "UTF-8", java_file])
-
 
 def execute_java(java_file):
     subprocess.check_call(['java', "-classpath", address, "-Dfile.encoding=UTF-8", java_file])

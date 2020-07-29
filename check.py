@@ -1,5 +1,5 @@
 import docx
-from docx import Document
+from docx import *
 from docx.shared import Pt
 from docx2pdf import convert
 import os
@@ -8,6 +8,7 @@ from docx.oxml.ns import qn, nsdecls
 from docx.enum.section import WD_ORIENTATION
 from docx.enum.section import WD_SECTION_START
 from docx.enum.section import WD_HEADER_FOOTER_INDEX
+from docx.text.paragraph import Paragraph
 
 
 
@@ -76,9 +77,17 @@ def trans():
     # convert(docxfilename)
     #pdf로 변환
 
+def forbreak():
+    document = Document("standard.docx")
+    document._body.append("안녕")
 
 
-trans()
+
+    document.save("forbreaktest.docx")
+
+
+
+forbreak()
 
 
 

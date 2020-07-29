@@ -1,5 +1,5 @@
 import docx
-from docx import Document
+from docx import *
 from docx.shared import Pt
 from docx.enum.text import WD_LINE_SPACING, WD_BREAK
 from docx2pdf import convert
@@ -31,7 +31,6 @@ def trans():
     test = f.read()
     f.close()
     # 텍스트파일에 있는 내용을 받아옴
-
     document = Document('standard.docx')
     document._body.clear_content()
     # python-docx 사용
@@ -55,7 +54,6 @@ def trans():
         try:
             if v[0] == "○":
                 para = document.add_paragraph()
-
                 para.paragraph_format.line_spacing = 1.2
                 run = para.add_run(v)
                 run.bold = True
