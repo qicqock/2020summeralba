@@ -1,15 +1,21 @@
+import os
 import subprocess
 from os import chdir
 from os.path import exists
 
+modified_osgetcwd = os.getcwd().replace("\\", "/")
 java_src_dir = "test_hwp/src"
+jar_src_dir = "test_hwp/out/artifacts/test_jar/test.jar"
+
 address = "C:/Users/qicqo/Desktop/2020summer/test_hwp/target/classes;C:/Users/qicqo/.m2/repository/kr/dogfoot/hwplib/1.0/hwplib-1.0.jar;C:/Users/qicqo/.m2/repository/org/apache/poi/poi/4.1.0/poi-4.1.0.jar;C:/Users/qicqo/.m2/repository/commons-codec/commons-codec/1.12/commons-codec-1.12.jar;C:/Users/qicqo/.m2/repository/org/apache/commons/commons-collections4/4.3/commons-collections4-4.3.jar;C:/Users/qicqo/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar",
 # java 파일을 컴파일하고 실행하기 위해 필요한 라이브러리들의 주소
 # 컴파일이나 실행할때 이주소를 classpath 옵션으로 지정해주어야 정상적으로 작동한다.
 # 실행환경이 바뀌었을때 이 주소도 바꿔줘야함
 
+
 def compile_java(java_file):
     subprocess.check_call(['javac', "-classpath", address, "-encoding", "UTF-8", java_file])
+
 
 def execute_java(java_file):
     subprocess.check_call(['java', "-classpath", address, "-Dfile.encoding=UTF-8", java_file])
@@ -20,11 +26,17 @@ def execute_java(java_file):
     # input = subprocess.Popen(cmd, stdin=PIPE)
     # print(proc.stdout.read())
 
+
+def execute_jar(java_file):
+    subprocess.check_call(['java', "-jar", "-Dfile.encoding=UTF-8", java_file])
+
+
 def move_dir():
     if exists(java_src_dir):
         chdir(java_src_dir)
 
-
 move_dir()
-compile_java("test/Main.java")
-execute_java("test/Main")
+execute_jar(modified_osgetcwd + "/" + jar_src_dir)
+
+# compile_java("test/Main.java")
+# execute_java("test/Main")
