@@ -4,7 +4,7 @@ from os import chdir
 from os.path import exists
 
 modified_osgetcwd = os.getcwd().replace("\\", "/")
-java_src_dir = "test_hwp/src"
+java_src_dir = "test_hwp"
 jar_src_dir = "test_hwp/out/artifacts/test_jar/test.jar"
 
 address = "C:/Users/qicqo/Desktop/2020summer/test_hwp/target/classes;C:/Users/qicqo/.m2/repository/kr/dogfoot/hwplib/1.0/hwplib-1.0.jar;C:/Users/qicqo/.m2/repository/org/apache/poi/poi/4.1.0/poi-4.1.0.jar;C:/Users/qicqo/.m2/repository/commons-codec/commons-codec/1.12/commons-codec-1.12.jar;C:/Users/qicqo/.m2/repository/org/apache/commons/commons-collections4/4.3/commons-collections4-4.3.jar;C:/Users/qicqo/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar",
