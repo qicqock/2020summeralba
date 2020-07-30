@@ -28,7 +28,19 @@ def execute_java(java_file):
 
 
 def execute_jar(java_file):
-    subprocess.check_call(['java', "-jar", "-Dfile.encoding=UTF-8", java_file])
+    print("Enter the source file name")
+    source_name = input()
+
+    try:
+        f = open(source_name, 'rt', encoding='utf-8')
+    except FileNotFoundError:
+        print("Cannot find the file")
+        return
+
+    print("Enter the name of the result file")
+    result_name = input()
+
+    subprocess.check_call(['java', "-jar", "-Dfile.encoding=UTF-8", java_file, source_name, result_name])
 
 
 def move_dir():
@@ -36,6 +48,7 @@ def move_dir():
         chdir(java_src_dir)
 
 move_dir()
+print(modified_osgetcwd)
 execute_jar(modified_osgetcwd + "/" + jar_src_dir)
 
 # compile_java("test/Main.java")

@@ -48,7 +48,7 @@ public class Main {
     		col.getHeader().setGapBetweenColumn(2000);
     		
             //파일 객체 생성
-            File file = new File(path + "/text.txt");
+            File file = new File(path + "/" + args[0]);
             // 읽어올 텍스트파일의 경로 설정, 경우에 따라 변경해 주어야한다.
             //입력 스트림 생성
             FileReader filereader = new FileReader(file);
@@ -96,7 +96,7 @@ public class Main {
             }
             //.readLine()은 끝에 개행문자를 읽지 않는다.            
             bufReader.close();
-            String writePath = path + "/result.hwp";
+            String writePath = path + "/" + args[1];
             // 결과가 입력이 될 한글파일 경로 설정, 경우에 따라 변경해 주어야한다.
             HWPWriter.toFile(hwpFile, writePath);
 
