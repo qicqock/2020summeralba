@@ -56,6 +56,7 @@ public class Main {
             BufferedReader bufReader = new BufferedReader(filereader);
             String line = "";
             int firstline = 1;
+            int lastlinecheck = 1;
             String prestr = "";
             DocInfo doc = hwpFile.getDocInfo();
             
@@ -63,22 +64,26 @@ public class Main {
             //charshape 추가 및 설정.
             int charShapeIndexForBold = createNewCharShape(doc);
             setBold(firstParagraph, charShapeIndexForBold);
-            
+
             while((line = bufReader.readLine()) != null){ 
             	String tmp = line;
             	int len = tmp.length();
+            	// paragraph의 끝일때
             	if(len == 0) {
             		tmp = "";
+                    lastlinecheck = 0;
             	}
+            	// 처음나오는 위원이름인경우 (텍스트파일의 제일 처음)
             	if(firstline==1) {
             		firstParagraph.getText().addString("○"+tmp);
             		Paragraph pre = firstParagraph;
             		firstParagraph = s.addNewParagraph();
             		//들여쓰기를 "  "로 대신함.
-            		setNewParagraph(firstParagraph, "  ", pre,false);
+            		setNewParagraph(firstParagraph, "", pre,false);
             		firstline = 0;
             		prestr = tmp;
             	}
+            	// 처음나오는 위원들 이름이 아닌경우
             	else if(len!=0 &&(prestr=="")) {	
             		Paragraph pre = firstParagraph;
             		firstParagraph = s.addNewParagraph();
@@ -87,10 +92,14 @@ public class Main {
             		firstParagraph.getText().addString("○"+tmp);
             		firstParagraph = s.addNewParagraph();
             		//들여쓰기를 "  "로 대신함.
-            		setNewParagraph(firstParagraph, "   ", pre,false);
+            		setNewParagraph(firstParagraph, "", pre,false);
             	}else {
-                	firstParagraph.getText().addString(tmp);
-
+                    if (lastlinecheck == 1){
+                	    firstParagraph.getText().addString("  " + tmp + "\n");
+                    }
+                    else {
+                        lastlinecheck = 1;
+                    }
             	}
             	prestr = tmp;
             }

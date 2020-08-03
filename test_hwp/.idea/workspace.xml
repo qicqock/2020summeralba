@@ -14,9 +14,8 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/test_jar/test.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/test_jar/test.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/result.hwp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../txt_to_hwp.py" beforeDir="false" afterPath="$PROJECT_DIR$/../txt_to_hwp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../txt_to_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/../txt_to_word.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +132,8 @@
       <workItem from="1596047550223" duration="408000" />
       <workItem from="1596048019047" duration="5000" />
       <workItem from="1596111533151" duration="2788000" />
+      <workItem from="1596127912678" duration="296000" />
+      <workItem from="1596473420141" duration="6108000" />
     </task>
     <servers />
   </component>
@@ -140,18 +141,18 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="280" y="208" key="#BuildArtifactsBeforeRunChooser" timestamp="1596043406280">
+    <state x="280" y="208" key="#BuildArtifactsBeforeRunChooser" timestamp="1596127935091">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="280" y="208" key="#BuildArtifactsBeforeRunChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596043406280" />
+    <state x="280" y="208" key="#BuildArtifactsBeforeRunChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596127935091" />
     <state x="707" y="343" key="#Notifications" timestamp="1596022507292">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="343" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1596022507292" />
-    <state x="217" y="61" width="1092" height="822" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596045349149">
+    <state x="217" y="61" width="1092" height="822" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596128206275">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="217" y="61" width="1092" height="822" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596045349149" />
+    <state x="217" y="61" width="1092" height="822" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596128206275" />
     <state x="233" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596045276336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -164,22 +165,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="519" y="257" width="440" height="510" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596045315419" />
-    <state width="914" height="282" key="GridCell.Tab.0.bottom" timestamp="1596114355066">
+    <state width="966" height="200" key="GridCell.Tab.0.bottom" timestamp="1596480342816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596114355066" />
-    <state width="914" height="282" key="GridCell.Tab.0.center" timestamp="1596114355066">
+    <state width="966" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596480342816" />
+    <state width="966" height="200" key="GridCell.Tab.0.center" timestamp="1596480342816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596114355066" />
-    <state width="914" height="282" key="GridCell.Tab.0.left" timestamp="1596114355066">
+    <state width="966" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596480342816" />
+    <state width="966" height="200" key="GridCell.Tab.0.left" timestamp="1596480342816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596114355066" />
-    <state width="914" height="282" key="GridCell.Tab.0.right" timestamp="1596114355066">
+    <state width="966" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596480342816" />
+    <state width="966" height="200" key="GridCell.Tab.0.right" timestamp="1596480342816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596114355066" />
+    <state width="966" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596480342816" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1595835053411">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
